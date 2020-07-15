@@ -6,7 +6,12 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
+    siteTitle: `Bankster Blog`,
     siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    title: `My Bankster Blog`,
+    description: "This is where I write my thoughts.",
+    siteDescription: "This is the site description",
+    author: `@lekoarts_de`,
   },
   plugins: [
     {
@@ -15,12 +20,20 @@ module.exports = {
       options: {
         navigation: [
           {
+            title: `Home`,
+            slug: `/`,
+            },
+          {
             title: `Blog`,
             slug: `/blog`,
           },
           {
             title: `About`,
             slug: `/about`,
+          },
+          {
+          title: `Charts`,
+          slug: `/charts`,
           },
         ],
         externalLinks: [
@@ -34,6 +47,20 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY,
+        concurrency: 5, // default
+        tables: [
+          {
+            baseId: process.env.BANK_BASE,
+            tableName: `Bank List`
+          },
+          // We can add other bases/tables here, too!
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
