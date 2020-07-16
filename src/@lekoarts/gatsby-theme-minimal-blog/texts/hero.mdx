@@ -1,0 +1,28 @@
+---
+title: Hero
+date: 2019-08-25
+---
+
+import {Chart} from "react-charts";
+import {data} from "./chartdata";
+
+# Hello
+Built with &#9829; and <a href="http://https://www.gatsbyjs.org/"> Gatsby JS </a>.
+Put Filler text here. or anything you want
+
+---
+
+#### Data represented in BarChart (react-charts library)
+
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: "bar" }}
+    axes={[
+      { primary: true, type: "ordinal", position: "left" },
+      { position: "bottom", type: "linear", stacked: true },
+    ]}
+    tooltip
+  />
+</figure>
+

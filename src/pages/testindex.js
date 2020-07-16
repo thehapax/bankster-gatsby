@@ -1,7 +1,19 @@
 import React from "react"
 import { graphql } from 'gatsby'
 
-
+export const mylist = [];
+export const mycurrency = [];
+/*
+const HomePage = ({data}) => {
+  data.allAirtable.nodes.map(node => (
+    mylist.push(node.data.Business_Name)
+  ))
+  data.allAirtable.nodes.map(node => (
+    mycurrency.push(node.data.Currency_of_Penalty)
+  ))
+  return mylist
+*/
+  
 const HomePage = ({data}) => {
   return(
     <>
@@ -18,6 +30,7 @@ const HomePage = ({data}) => {
     </div>
     </>
   )
+  
 }
 
 export default HomePage

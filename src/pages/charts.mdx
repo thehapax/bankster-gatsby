@@ -2,27 +2,24 @@
 title: Charts
 slug: "/charts"
 ---
-# My Awesome Page
 
+# My Awesome Page
 Here's a paragraph, followed by a paragraph with data!
 
-import { graphql } from "gatsby"
+---
+import { graphql } from 'gatsby'
 
-export default ({children, ...props}) => (
-  <div className="my custom layout">
-    <div>{children}</div>
-    <pre>{JSON.stringify(props, null, 2)}</pre>
-  </div>
-)
+export default ({ data }) => 
+{return JSON.stringify(data.allAirtable.group, null, 4)}
 
-export const pageQuery = graphql`
-query BankNumberViolations {
-  allAirtable {
-    group(field: data___Business_Name) {
-      fieldValue
-      totalCount
+export const query = graphql`
+  {
+    allAirtable {
+      group(field: data___Currency_of_Penalty) {
+        fieldValue
+        totalCount
+      }
     }
   }
-}
 `
 
