@@ -2,12 +2,13 @@
 title: Charts
 slug: "/charts"
 ---
+import { graphql } from 'gatsby'
 
 # My Awesome Page
 Here's a paragraph, followed by a paragraph with data!
 
 ---
-import { graphql } from 'gatsby'
+
 
 export default ({ data }) => 
 {return JSON.stringify(data.allAirtable.group, null, 4)}

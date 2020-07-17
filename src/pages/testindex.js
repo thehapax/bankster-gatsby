@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from 'gatsby'
 
+/*
 export const mylist = [];
 export const mycurrency = [];
-/*
+
 const HomePage = ({data}) => {
   data.allAirtable.nodes.map(node => (
     mylist.push(node.data.Business_Name)
@@ -19,8 +20,6 @@ const HomePage = ({data}) => {
     <>
     <div>
       Hello! This is the Total Count:
-      {data.allAirtable.totalCount}
-
       {data.allAirtable.nodes.map(node => (
         <li> {node.data.Business_Name}, currency: 
          {node.data.Currency_of_Penalty}
@@ -30,16 +29,13 @@ const HomePage = ({data}) => {
     </div>
     </>
   )
-  
 }
 
 export default HomePage
 
-
 export const query = graphql`
 query MyQuery {
   allAirtable {
-    totalCount
     nodes {
       data {
         Business_Name
@@ -54,18 +50,6 @@ query MyQuery {
 query BankNumberViolations {
   allAirtable {
     group(field: data___Business_Name) {
-      fieldValue
-      totalCount
-    }
-  }
-}
-*/
-
-/*
-// total violation counts per currency
-query CurrencyCount {
-  allAirtable {
-    group(field: data___Currency_of_Penalty) {
       fieldValue
       totalCount
     }

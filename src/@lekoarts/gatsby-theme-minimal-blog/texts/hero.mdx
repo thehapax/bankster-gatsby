@@ -26,3 +26,30 @@ Put Filler text here. or anything you want
   />
 </figure>
 
+### Data represented in ColumnChart
+
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: "bar" }}
+    axes={[
+      { primary: true, type: "ordinal", position: "bottom" },
+      { position: "left", type: "linear", stacked: false },
+    ]}
+    tooltip
+  />
+</figure>
+
+### Data represented in AreaChart
+
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: "bar" }}
+    axes={[
+      { primary: true, position: "bottom", type: "time" },
+      { position: "left", type: "linear", stacked: true },
+    ]}
+    tooltip
+  />
+</figure>
