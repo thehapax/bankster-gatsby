@@ -3,7 +3,6 @@ import {Doughnut} from 'react-chartjs-2';
 import graphql2chartjs from 'graphql2chartjs';
 import { graphql } from 'gatsby'
 
-
 export default ({data}) => {
     const g2c = new graphql2chartjs(data.allAirtable, 'pie');
     const datainput = g2c.data
@@ -27,15 +26,15 @@ export default ({data}) => {
     g2c.data["datasets"] = [elems]
 
     return (
-        <>
+      <>
         <Doughnut data={g2c.data}  options={{
                   responsive: true,
                   maintainAspectRatio: true,
                   //tooltips: {
                     //backgroundColor: "rgba(252, 104, 104, 0.8)", // hot pink background
                   //}, 
-          }} /> 
-        </>    
+          }} />  
+      </>
     )
    //  return JSON.stringify(g2c.data, null, 4)
 }

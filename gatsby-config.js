@@ -7,11 +7,11 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 module.exports = {
   siteMetadata: {
     siteTitle: `Bankster Blog`,
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
-    title: `My Bankster Blog`,
-    description: "This is where I write my thoughts.",
-    siteDescription: "This is the site description",
-    author: `@lekoarts_de`,
+    siteTitleAlt: `Bankster Blog`,
+    title: `Bankster Blog`,
+    description: "Tracking Criminality of the Banking Industry",
+    siteDescription: "Tracking Criminality of the Banking Industry",
+    //author: `@lekoarts_de`,
   },
   plugins: [
     {
@@ -24,26 +24,34 @@ module.exports = {
             slug: `/`,
             },
           {
+            title: `Contact`,
+            slug: `/contact`,
+          },
+          {
             title: `Blog`,
             slug: `/blog`,
           },
           {
-            title: `About`,
-            slug: `/about`,
+            title: `PieChart`,
+            slug: `/charts`,
           },
           {
-          title: `Charts`,
-          slug: `/charts`,
+            title: `BarChart`,
+            slug: `/currencybar`,
+          },
+          {
+            title: `DonutChart`,
+            slug: `/simplepie`,
           },
         ],
         externalLinks: [
           {
             name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            url: `https://twitter.com/`,
           },
           {
             name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            url: `https://www.instagram.com/`,
           },
         ],
       },
@@ -74,7 +82,7 @@ module.exports = {
       options: {
         name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
         short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        description: `Typography driven.`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,

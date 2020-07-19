@@ -1,55 +1,24 @@
 ---
-title: Hero
-date: 2019-08-25
+title: Home
+date: 2020-07-10
 ---
 
-import {Chart} from "react-charts";
-import {data} from "./chartdata";
+# Rich Structured Datasets
 
-# Hello
-Built with &#9829; and <a href="http://https://www.gatsbyjs.org/"> Gatsby JS </a>.
-Put Filler text here. or anything you want
+>"Permit me to issue and control the money of a nation, and I care not who makes its laws" - Mayer Amschel Rothschild (1744–1812)
+
+
+### Our data is crowdsourced, help make it better! 
+There is no solid source of data on the internet for financial crimes, 
+it is often locked behind paywalls, or in non-searchable formats like PDFs
+or just plain forgotten about. We are powered by you as all our information 
+can be submitted by anyone via the form below and it will be added to the main 
+sheet once verified. Thanks!
 
 ---
 
-#### Data represented in BarChart (react-charts library)
+#### Bar chart
 
-<figure style={{ height: 300 }}>
-  <Chart
-    data={data}
-    series={{ type: "bar" }}
-    axes={[
-      { primary: true, type: "ordinal", position: "left" },
-      { position: "bottom", type: "linear", stacked: true },
-    ]}
-    tooltip
-  />
-</figure>
 
-### Data represented in ColumnChart
 
-<figure style={{ height: 300 }}>
-  <Chart
-    data={data}
-    series={{ type: "bar" }}
-    axes={[
-      { primary: true, type: "ordinal", position: "bottom" },
-      { position: "left", type: "linear", stacked: false },
-    ]}
-    tooltip
-  />
-</figure>
 
-### Data represented in AreaChart
-
-<figure style={{ height: 300 }}>
-  <Chart
-    data={data}
-    series={{ type: "bar" }}
-    axes={[
-      { primary: true, position: "bottom", type: "time" },
-      { position: "left", type: "linear", stacked: true },
-    ]}
-    tooltip
-  />
-</figure>
