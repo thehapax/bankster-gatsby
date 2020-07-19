@@ -8,6 +8,8 @@ import React from "react"
 import graphql2chartjs from 'graphql2chartjs';
 import {Bar} from 'react-chartjs-2';
 import { graphql } from 'gatsby'
+import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
+
 
 export default ({ data }) => {
   const g2c = new graphql2chartjs(data.allAirtable, 'bar');
@@ -18,6 +20,7 @@ export default ({ data }) => {
   });
  return( 
   <>
+  <Layout>
     <Bar data={g2c.data} options={{
             responsive: true,
             maintainAspectRatio: true,
@@ -33,6 +36,7 @@ export default ({ data }) => {
               backgroundColor: "rgba(252, 104, 104, 0.8)" // hot pink background
             }, 
           }} />
+    </Layout>
   </>
   )
 }

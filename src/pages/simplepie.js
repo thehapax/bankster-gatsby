@@ -2,6 +2,8 @@ import React from "react"
 import {Doughnut} from 'react-chartjs-2';
 import graphql2chartjs from 'graphql2chartjs';
 import { graphql } from 'gatsby'
+import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
+
 
 export default ({data}) => {
     const g2c = new graphql2chartjs(data.allAirtable, 'pie');
@@ -27,13 +29,25 @@ export default ({data}) => {
 
     return (
       <>
+      <Layout>
+        <h1>Doughnut chart</h1>
         <Doughnut data={g2c.data}  options={{
                   responsive: true,
                   maintainAspectRatio: true,
+                  layout: {
+                    padding: {
+                        top: 15,
+                        left: 15,
+                        right: 15,
+                        bottom: 15
+                    },
+                  },
+      
                   //tooltips: {
                     //backgroundColor: "rgba(252, 104, 104, 0.8)", // hot pink background
                   //}, 
           }} />  
+      </Layout>
       </>
     )
    //  return JSON.stringify(g2c.data, null, 4)

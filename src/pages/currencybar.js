@@ -2,6 +2,7 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import graphql2chartjs from 'graphql2chartjs';
 import { graphql } from 'gatsby';
+import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 
 export default ({ data }) => {
   const g2c = new graphql2chartjs(data.allAirtable, 'bar');
@@ -12,22 +13,25 @@ export default ({ data }) => {
   });
  return (
     <>
-    <Bar data={g2c.data} options={{
-          responsive: true,
-          maintainAspectRatio: true,
-          layout: {
-            padding: {
-                top: 15,
-                left: 15,
-                right: 15,
-                bottom: 15
+    <Layout>
+      <h1>Bar Chart</h1>
+      <Bar data={g2c.data} options={{
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+              padding: {
+                  top: 15,
+                  left: 15,
+                  right: 15,
+                  bottom: 15
+              },
             },
-          },
-          tooltips: {
-            backgroundColor: "rgba(252, 104, 104, 0.8)" // hot pink background
-          }, 
-      }} />
-      </>
+            tooltips: {
+              backgroundColor: "rgba(252, 104, 104, 0.8)" // hot pink background
+            }, 
+        }} />
+    </Layout>
+    </>
  )
 }
 
