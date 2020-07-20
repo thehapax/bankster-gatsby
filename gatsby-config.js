@@ -32,16 +32,8 @@ module.exports = {
             slug: `/blog`,
           },
           {
-            title: `PieChart`,
-            slug: `/charts`,
-          },
-          {
-            title: `BarChart`,
-            slug: `/currencybar`,
-          },
-          {
-            title: `DonutChart`,
-            slug: `/simplepie`,
+            title: `Charts`,
+            slug: `/app`,
           },
         ],
         externalLinks: [

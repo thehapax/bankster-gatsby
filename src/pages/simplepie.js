@@ -34,18 +34,11 @@ export default ({data}) => {
         <Doughnut data={g2c.data}  options={{
                   responsive: true,
                   maintainAspectRatio: true,
-                  layout: {
-                    padding: {
-                        top: 15,
-                        left: 15,
-                        right: 15,
-                        bottom: 15
-                    },
-                  },
-      
-                  //tooltips: {
-                    //backgroundColor: "rgba(252, 104, 104, 0.8)", // hot pink background
-                  //}, 
+                  legend: {
+                      display: true,
+                      fullWidth: true,
+                      position: 'left',
+                    }
           }} />  
       </Layout>
       </>
