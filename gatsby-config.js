@@ -6,9 +6,9 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `Bankster Blog`,
-    siteTitleAlt: `Bankster Blog`,
-    title: `Bankster Blog`,
+    siteTitle: `The Money Laundry`,
+    siteTitleAlt: `The Money Laundry`,
+    title: `The Money Laundry`,
     description: "Tracking Criminality of the Banking Industry",
     siteDescription: "Tracking Criminality of the Banking Industry",
     //author: `@lekoarts_de`,
@@ -24,26 +24,18 @@ module.exports = {
             slug: `/`,
             },
           {
-            title: `Contact`,
-            slug: `/contact`,
-          },
-          {
-            title: `Blog`,
-            slug: `/blog`,
-          },
-          {
             title: `Charts`,
             slug: `/app`,
+          },
+          {
+            title: `Contact`,
+            slug: `/contact`,
           },
         ],
         externalLinks: [
           {
             name: `Twitter`,
             url: `https://twitter.com/`,
-          },
-          {
-            name: `Instagram`,
-            url: `https://www.instagram.com/`,
           },
         ],
       },
