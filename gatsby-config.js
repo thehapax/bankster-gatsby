@@ -25,7 +25,7 @@ module.exports = {
             },
           {
             title: `Charts`,
-            slug: `/app`,
+            slug: `/allcharts`,
           },
           {
             title: `Contact`,
