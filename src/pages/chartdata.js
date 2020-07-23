@@ -40,8 +40,6 @@ export default () => {
   )
 }
 
-
-
 export const mydata = [
     {
       label: "In App Purchase Income",
