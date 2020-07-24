@@ -11,7 +11,11 @@ module.exports = {
     title: `The Money Laundry`,
     description: "Tracking Criminality of the Banking Industry",
     siteDescription: "Tracking Criminality of the Banking Industry",
-    //author: `@lekoarts_de`,
+    author: ``,
+    siteImage: ``, // replace this
+    siteUrl: `https://themoney.laundry`,
+    siteHeadline: ``,
+    siteLanguage: `en`,
   },
   plugins: [
     {
@@ -71,7 +75,6 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#6B46C1`,
         display: `standalone`,
-        /*
         icons: [
           {
             src: `/android-chrome-192x192.png`,
@@ -84,7 +87,7 @@ module.exports = {
             type: `image/png`,
           },
         ],
-        */
+        
       },
     },
     `gatsby-plugin-offline`,
