@@ -64,13 +64,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven.`,
+        name: `The Money Laundry`,
+        short_name: `money-laundry`,
+        description: `Tracking Criminality of the Banking Industry`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
         display: `standalone`,
+        /*
         icons: [
           {
             src: `/android-chrome-192x192.png`,
@@ -83,6 +84,7 @@ module.exports = {
             type: `image/png`,
           },
         ],
+        */
       },
     },
     `gatsby-plugin-offline`,
