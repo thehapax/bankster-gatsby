@@ -36,6 +36,8 @@ const CountryViolations = () => {
   return (
     <>
     <h1>Violations by Country</h1>
+    <h3>Click on the legend below to hide or show datasets</h3>
+
     <Pie data={g2c.data}  options={{
       responsive: true,
       maintainAspectRatio: true,
@@ -45,6 +47,7 @@ const CountryViolations = () => {
           position: 'bottom',
         }
     }} />
+
     </>
   )
   
