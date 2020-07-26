@@ -22,7 +22,7 @@ const ViolationsChart = () => {
   });
   return (
     <>
-    <h1>Banksters - Types of Violations</h1>
+    <h1>Types of Violations</h1>
     <Bar data={g2c.data} options={{
         responsive: true,
         maintainAspectRatio: true,

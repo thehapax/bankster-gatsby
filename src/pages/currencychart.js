@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import graphql2chartjs from 'graphql2chartjs';
-import {Doughnut} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 import {colorlist} from './utils';
 
 const CurrencyChart = () => {
@@ -35,13 +35,13 @@ const CurrencyChart = () => {
   return (
     <>
     <h1>Violations by Currency</h1>
-    <Doughnut data={g2c.data}  options={{
+    <HorizontalBar data={g2c.data}  options={{
       responsive: true,
       maintainAspectRatio: true,
       legend: {
           display: true,
           fullWidth: true,
-          position: 'left',
+          position: 'bottom',
         }
     }} />
     </>

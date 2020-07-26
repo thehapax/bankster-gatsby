@@ -1,83 +1,83 @@
-// list of Violations by Country
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import graphql2chartjs from 'graphql2chartjs';
-//import {Pie} from 'react-chartjs-2';
+import {colorlist} from './utils';
+import {Doughnut} from 'react-chartjs-2';
 
-const CountryViolations = () => {
+const USDPenalties = () => { 
   const data = useStaticQuery(graphql`
-  {
-    allAirtable(filter: {data: {Currency_of_Penalty: {eq: "USD"}}}) {
-      nodes {
-        data {
-          Penalty_amount_in_native_currency
-          Business_Name
+    {
+      allAirtable(sort: {fields: data___Business_Name}, filter: {data: {Penalty_amount_in_native_currency: {ne: 0}}}) {
+        distinct(field: data___Business_Name)
+        nodes {
+          data {
+            amount: Penalty_amount_in_native_currency
+            name: Business_Name
+            juris: Jurisdiction_of_Penalty
+          }
         }
       }
     }
-  }  
   `)
+  var len = Object.keys(data.allAirtable.nodes).length
+  console.log("length of list")
+  console.log(len)
 
+  var mynodes = data.allAirtable.nodes
+  var keys = Object.keys(mynodes)
+  var df = [];
+  for (let n=0; n < keys.length; n++) {
+    df.push(data.allAirtable.nodes[n].data)
+  }  
 
-  const g2c = new graphql2chartjs(data.allAirtable, 'pie');
-  g2c.reform((datasetName, dataPoint) => {
-    return {
-      backgroundColor: 'rgba(74, 181, 235, 1)' // light blue fill
+  let distinct = data.allAirtable.distinct
+  console.log(distinct)
+
+  let newcolor =  colorlist(len)
+  var currency = 'USD'
+  let mytotals = []
+  let juris = []
+
+  for (let n=0; n < distinct.length; n++) {
+    let name = distinct[n]
+    let amount = 0
+    for (let i=0; i < df.length; i++) {
+      if (name === df[i].name) {
+        amount = amount + df[i].amount
+      }
     }
-  });
-  const elems = g2c.data['datasets'][0];
-  elems['backgroundColor'] = [
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)',
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)',
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)',
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)'
-  ]
-  elems['borderWidth'] = 0
-  g2c.data["datasets"] = [elems]
+    mytotals.push(amount)
+    juris.push(df[n].juris)
+  }
 
-  return <pre>{JSON.stringify(data, null, 4)}</pre>
+  const mdata = {
+    labels: distinct,
+    datasets: [{
+        label: 'Penalty in '+currency,
+        backgroundColor: newcolor,
+        borderWidth: 0,
+        data: mytotals,
+    }]
+  }
 
-
-  //return <pre>{JSON.stringify(g2c.data, null, 4)}</pre>
-  /*
-  return (
-    <>
-    <h1>Violations by Country</h1>
-    <Pie data={g2c.data}  options={{
-      responsive: true,
-      maintainAspectRatio: true,
-      legend: {
-          display: true,
-          fullWidth: true,
-          position: 'bottom',
-        }
-    }} />
-    </>
+//  console.log(mdata)
+// return <pre>{JSON.stringify(juris, null, 4)}</pre>
+ return (
+  <>
+  <h1>Bank Violations by USD</h1>
+  <Doughnut data={mdata}  options={{
+    responsive: true,
+    maintainAspectRatio: true,
+    legend: {
+        display: false,
+        fullWidth: true,
+        position: 'bottom',
+      }
+  }} />
+  </>
   )
- */
 
 }
 
-export default CountryViolations
+export default USDPenalties
 
 
