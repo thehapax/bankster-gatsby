@@ -11,11 +11,8 @@ export function colorlist(size) {
       
       var newcolor = [];
       var repeat = Math.floor(size/6) +1
-      console.log("size")
-      console.log(size)
-      console.log("repeater")
-      console.log(repeat)
-      
+      console.log("inside colorlist: size:" + size)
+
       for (let i=0; i < repeat; i++) {
         for (let n = 0 ; n< 6; n++)
           newcolor.push(colors[n])

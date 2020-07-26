@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import graphql2chartjs from 'graphql2chartjs';
 import {HorizontalBar} from 'react-chartjs-2';
-import {colorlist} from './utils';
+import {colorlist} from '../components/utils';
 
 const CurrencyChart = () => {
   const data = useStaticQuery(graphql`
@@ -24,7 +24,7 @@ const CurrencyChart = () => {
       // force add background color into dataset, since g2c add doesn't seem to work
       const elems = g2c.data['datasets'][0];
 
-      console.log("length of data")
+      //console.log("length of data")
       var len = Object.keys(data.allAirtable.ViolationsByCurrency).length
   
       elems['backgroundColor'] = colorlist(len)

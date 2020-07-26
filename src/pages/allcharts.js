@@ -10,9 +10,9 @@ export default () => {
     <>
     <Layout>
         <USDPenalties />
-         <ViolationsChart />
-         <CountryViolations />
-         <CurrencyChart />
+        <ViolationsChart />
+        <CountryViolations />
+        <CurrencyChart />
     </Layout>
     </>
     )

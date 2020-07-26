@@ -1,7 +1,34 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import {colorlist} from './utils';
 import {Doughnut} from 'react-chartjs-2';
+import {colorlist} from '../components/utils';
+
+/*
+export function colorlist(size) {
+  var colors = [
+    'rgba(255, 99, 132, 0.7)',
+    'rgba(54, 162, 235, 0.7)',
+    'rgba(255, 206, 86, 0.7)',
+    'rgba(75, 192, 192, 0.7)',
+    'rgba(153, 102, 255, 0.7)',
+    'rgba(255, 159, 64, 0.7)',
+    ]
+    
+    var newcolor = [];
+    var repeat = Math.floor(size/6) +1
+    console.log("size")
+    console.log(size)
+    console.log("repeater")
+    console.log(repeat)
+    
+    for (let i=0; i < repeat; i++) {
+      for (let n = 0 ; n< 6; n++)
+        newcolor.push(colors[n])
+    }
+    return newcolor
+}
+*/
+
 
 const USDPenalties = () => { 
   const data = useStaticQuery(graphql`
@@ -19,8 +46,8 @@ const USDPenalties = () => {
     }
   `)
   var len = Object.keys(data.allAirtable.nodes).length
-  console.log("length of list")
-  console.log(len)
+ //  console.log("length of list")
+ // console.log(len)
 
   var mynodes = data.allAirtable.nodes
   var keys = Object.keys(mynodes)
@@ -30,7 +57,7 @@ const USDPenalties = () => {
   }  
 
   let distinct = data.allAirtable.distinct
-  console.log(distinct)
+  // console.log(distinct)
 
   let newcolor =  colorlist(len)
   var currency = 'USD'

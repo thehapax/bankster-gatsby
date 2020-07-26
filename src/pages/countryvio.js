@@ -3,7 +3,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import graphql2chartjs from 'graphql2chartjs';
 import {Pie} from 'react-chartjs-2';
-import {colorlist} from './utils';
+import {colorlist} from '../components/utils';
 
 
 const CountryViolations = () => {
@@ -26,8 +26,8 @@ const CountryViolations = () => {
   const elems = g2c.data['datasets'][0];
 
   var len = Object.keys(data.allAirtable.ViolationsByCountry).length
-  console.log("length of data")
-  console.log(len)
+//  console.log("length of data")
+//  console.log(len)
 
   elems['backgroundColor'] = colorlist(len)
   elems['borderWidth'] = 0
