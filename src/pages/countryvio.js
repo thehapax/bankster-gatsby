@@ -3,6 +3,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import graphql2chartjs from 'graphql2chartjs';
 import {Pie} from 'react-chartjs-2';
+import {colorlist} from './utils';
+
 
 const CountryViolations = () => {
   const data = useStaticQuery(graphql`
@@ -22,38 +24,14 @@ const CountryViolations = () => {
     }
   });
   const elems = g2c.data['datasets'][0];
-  elems['backgroundColor'] = [
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)',
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)',
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)',
-      'rgba(255, 99, 132, 0.7)',
-      'rgba(54, 162, 235, 0.7)',
-      'rgba(255, 206, 86, 0.7)',
-      'rgba(75, 192, 192, 0.7)',
-      'rgba(153, 102, 255, 0.7)',
-      'rgba(255, 159, 64, 0.7)'
-  ]
+
+  var len = Object.keys(data.allAirtable.ViolationsByCountry).length
+  console.log("length of data")
+  console.log(len)
+
+  elems['backgroundColor'] = colorlist(len)
   elems['borderWidth'] = 0
   g2c.data["datasets"] = [elems]
-
-
-
-  //return <pre>{JSON.stringify(g2c.data, null, 4)}</pre>
   
   return (
     <>

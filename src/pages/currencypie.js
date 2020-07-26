@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import graphql2chartjs from 'graphql2chartjs';
 import {Doughnut} from 'react-chartjs-2';
-
+import {colorlist} from './utils';
 
 const CurrencyChart = () => {
   const data = useStaticQuery(graphql`
@@ -23,23 +23,13 @@ const CurrencyChart = () => {
   });
       // force add background color into dataset, since g2c add doesn't seem to work
       const elems = g2c.data['datasets'][0];
-      elems['backgroundColor'] = [
-          'rgba(255, 99, 132, 0.7)',
-          'rgba(54, 162, 235, 0.7)',
-          'rgba(255, 206, 86, 0.7)',
-          'rgba(75, 192, 192, 0.7)',
-          'rgba(153, 102, 255, 0.7)',
-          'rgba(255, 159, 64, 0.7)',
-          'rgba(255, 99, 132, 0.7)',
-          'rgba(54, 162, 235, 0.7)',
-          'rgba(255, 206, 86, 0.7)',
-          'rgba(75, 192, 192, 0.7)',
-          'rgba(153, 102, 255, 0.7)',
-          'rgba(255, 159, 64, 0.7)'
-      ]
+
+      console.log("length of data")
+      var len = Object.keys(data.allAirtable.ViolationsByCurrency).length
+  
+      elems['backgroundColor'] = colorlist(len)
       elems['borderWidth'] = 0
       g2c.data["datasets"] = [elems]
-  
   
 
   return (
